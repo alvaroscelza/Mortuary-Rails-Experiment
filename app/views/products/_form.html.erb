@@ -1,0 +1,57 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :product_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sell_price %>
+    <%= form.number_field :sell_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :buy_price %>
+    <%= form.number_field :buy_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :client_taxes_percentage %>
+    <%= form.number_field :client_taxes_percentage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :provider_id %>
+    <%= form.select :provider_id, options_for_select(Provider.all.map{|p|[p.name, p.id]}, @product.provider_id) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

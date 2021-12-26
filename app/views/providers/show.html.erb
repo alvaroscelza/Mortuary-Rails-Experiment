@@ -1,0 +1,32 @@
+<p>
+  <strong>Name:</strong>
+  <%= @provider.name %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @provider.company_name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @provider.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @provider.phone %>
+</p>
+
+<p>
+  <strong>Bank account information:</strong>
+  <%= @provider.bank_account_information %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @provider.notes %>
+</p>
+
+<%= link_to 'Edit', edit_provider_path(@provider) %> |
+<%= link_to 'Back', providers_path %>
